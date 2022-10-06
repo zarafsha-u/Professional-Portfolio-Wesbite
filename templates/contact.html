@@ -1,0 +1,41 @@
+{% include "header.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+<html lang="en">
+<head>
+</head>
+<body>
+<div class="container-fluid bg-image" style="background-image: url('static/images/bg.jpeg');height: 100vh;">
+    <div class="container">
+      <div
+        class="row align-items-center"
+        style="min-height: 100vh">
+        <div class="col-md-12">
+            <div class="row">
+
+                  <div class="col-sm-4">
+                  </div>
+                <div class="col-sm-4">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5 class="card-title">Contact Me!</h5>
+                        <p class="card-text">
+                            <form class="form form-horizontal" method="POST", action="/contact">
+                                {{ form.hidden_tag() }}
+                                {{ wtf.form_errors(form, hiddens="only") }}
+                          <div class="p-2"> {{wtf.quick_form(form, button_map= {'submit': 'success'}) }} </div>
+
+                      </form>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+{% include "footer.html" %}
